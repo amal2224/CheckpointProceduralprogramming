@@ -1,0 +1,83 @@
+//procedure Dot Product //
+PROCEDURE dot_product(VAR PS: FLOAT ; arr1 , arr2 : ARRAY_OF FLOAT)
+VAR
+    i,j : INTEGER;
+BEGIN
+    FOR i FROM 0 TO arr1.length -1  DO
+    FOR j FROM 0 TO arr2.length -1  DO
+        PS := PS + (arr1[i]*arr2[j]);
+    END_FOR
+END
+
+//main
+ALGORITHM ScalarProduct
+VAR
+    //PS : resultat de produit de V1 & V2
+    PS : FLOAT := 0;
+    //declaration de tableau des vecteurs qui s'appelle IR 
+    IR : ARRAY_OF FLOAT [][];
+    //V1 & V2 sont deux vecteurs
+    V1 , V2 : ARRAY_OF FLOAT [];
+    //longeur de Vecteurs V1 V2
+    N , n1 , n2 : INTEGER;
+    //deux compteurs
+    i,j : INTEGER;
+
+BEGIN
+//lire longeur de Vecteurs IR
+    Read (N);
+//parcour Vecteurs IR
+      FOR i FROM 0 TO N-1 DO
+      FOR j FROM 0 TO N-1 DO
+        Read (IR[i][j]);
+        //le problème c'est que les deux vecteurs sont repliés de même valeur chaque fois :o
+        V1 :=IR[i][j]; // :'(
+        V2 :=IR[i][j]; // :'(
+      END_FOR
+    END_FOR
+//dislay: apl au procedure dot_product
+    dot_product(PS , V1 , V2);
+    IF (PS = 0) THEN
+        Write (V1,"and",V2,"are orthogonal")
+    END_IF
+END
+
+//function dot_product //
+
+FUNCTION dot_product(VAR PS: FLOAT , arr1 , arr2 : ARRAY_OF FLOAT) : FLOAT
+VAR
+    i : INTEGER;
+BEGIN
+    FOR i FROM 0 TO arr1.length -1  DO
+    FOR i FROM 0 TO arr2.length -1 Do
+        PS := PS + (arr1[i]*arr2[j]);
+    END_FOR
+    END_FOR
+    RETURN PS ; 
+END
+
+ALGORITHM ScalarProduct
+VAR
+    PS : FLOAT := 0;
+    IR : ARRAY_OF FLOAT [][];
+    V1 , V2 : ARRAY_OF FLOAT [];
+    N , n1 , n2 : INTEGER;
+    i,j : INTEGER;
+
+BEGIN
+    Read (N);
+
+     FOR i FROM 0 TO N-1 DO
+      FOR j FROM 0 TO N-1 DO
+          Read (IR[i][j]);
+        V1 :=IR[i][j]; 
+        V2 :=IR[i][j]; 
+      END_FOR
+    END_FOR
+
+  
+    PS := dot_product(PS , V1 , V2);
+    IF (PS = 0) THEN
+        Write (V1,"and",V2,"are orthogonal")
+    END_IF
+END
