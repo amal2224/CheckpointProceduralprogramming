@@ -4,8 +4,7 @@ VAR
     i,j : INTEGER;
 BEGIN
     FOR i FROM 0 TO arr1.length -1  DO
-    FOR j FROM 0 TO arr2.length -1  DO
-        PS := PS + (arr1[i]*arr2[j]);
+        PS := PS + (arr1[i]*arr2[i]);
     END_FOR
 END
 
@@ -24,6 +23,7 @@ VAR
     i,j : INTEGER;
 
 BEGIN
+Read(N);
 //lire longeur de Vecteurs IR
     Read (N);
 //parcour Vecteurs IR
@@ -50,7 +50,7 @@ VAR
 BEGIN
     FOR i FROM 0 TO arr1.length -1  DO
     FOR i FROM 0 TO arr2.length -1 Do
-        PS := PS + (arr1[i]*arr2[j]);
+        PS := PS + (arr1[i]*arr2[i]);
     END_FOR
     END_FOR
     RETURN PS ; 
@@ -66,14 +66,12 @@ VAR
 
 BEGIN
     Read (N);
+    Read(V1);
+    Read(V2);
+    Read(n1);
+    Read(n2);
 
-     FOR i FROM 0 TO N-1 DO
-      FOR j FROM 0 TO N-1 DO
-          Read (IR[i][j]);
-        V1 :=IR[i][j]; 
-        V2 :=IR[i][j]; 
-      END_FOR
-    END_FOR
+    
 
   
     PS := dot_product(PS , V1 , V2);
